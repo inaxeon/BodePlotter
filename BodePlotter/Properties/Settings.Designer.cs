@@ -130,5 +130,29 @@ namespace BodePlotter.Properties {
                 this["Offset"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Ref")]
+        public string RefPlotLabel {
+            get {
+                return ((string)(this["RefPlotLabel"]));
+            }
+            set {
+                this["RefPlotLabel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Actual")]
+        public string ActualPlotLabel {
+            get {
+                return ((string)(this["ActualPlotLabel"]));
+            }
+            set {
+                this["ActualPlotLabel"] = value;
+            }
+        }
     }
 }

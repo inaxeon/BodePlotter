@@ -17,15 +17,17 @@ namespace BodePlotter.Models
     public class ChartDataSource : INotifyPropertyChanged
     {
         private ChartScale _currentScale;
+        private ChartConfiguration _config;
 
-        public ChartDataSource()
+        public ChartDataSource(ChartConfiguration config)
         {
+            _config = config;
             YFormatter = value => value.ToString() + " dB";
             SeriesCollection = new SeriesCollection
             {
                 new LineSeries
                 {
-                    Title = "Actual",
+                    Title = _config.ActualPlotLabel,
                     Values = new ChartValues<double>(),
                     PointGeometry = null,
                     Stroke = new SolidColorBrush(Color.FromArgb(255, 33, 149, 242)),
@@ -124,7 +126,7 @@ namespace BodePlotter.Models
                 SeriesCollection.Add(
                     new LineSeries
                     {
-                        Title = "Ref",
+                        Title = _config.RefPlotLabel,
                         Values = new ChartValues<double>(),
                         PointGeometry = null,
                         Stroke = new SolidColorBrush(Color.FromArgb(255, 255, 67, 54)),
@@ -150,6 +152,19 @@ namespace BodePlotter.Models
         {
             if (SeriesCollection.Count == 2)
                 SeriesCollection.RemoveAt(1);
+        }
+
+        public void UpdateConfig(ChartConfiguration config)
+        {
+            _config = config;
+
+            if (SeriesCollection.Count >= 1)
+                ((LineSeries)SeriesCollection[0]).Title = _config.ActualPlotLabel;
+
+            if (SeriesCollection.Count == 2)
+                ((LineSeries)SeriesCollection[1]).Title = _config.RefPlotLabel;
+
+            NotifyPropertyChanged("SeriesCollection");
         }
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")

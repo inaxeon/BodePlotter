@@ -12,7 +12,7 @@ namespace Gpib.InstrumentInterface
 {
     public static class MeasurementInstrumentFactory
     {
-        public static IMeasurementInstrument GetSource(IMessageBasedSession session, string addr)
+        public static IMeasurementInstrument GetMeasurer(IMessageBasedSession session, string addr)
         {
             session.RawIO.Write("*IDN?\n");
 

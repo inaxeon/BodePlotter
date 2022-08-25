@@ -69,6 +69,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helpers\DialogHelper.cs" />
+    <Compile Include="Models\ChartConfiguration.cs" />
     <Compile Include="Models\ChartScale.cs" />
     <Compile Include="Models\OffsetMeasurementResult.cs" />
     <Compile Include="Models\SavedPlot.cs" />

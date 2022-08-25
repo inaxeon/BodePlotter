@@ -43,12 +43,13 @@ namespace BodePlotter
         public MainWindow()
         {
             InitializeComponent();
+
+            _chartDataSource = new ChartDataSource(GetChartConfig());
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SetUiState(UiState.Disconnected);
-            _chartDataSource = new ChartDataSource();
             ChtBodeChart.DataContext = _chartDataSource;
         }
 
@@ -101,7 +102,9 @@ namespace BodePlotter
         private void CmdOptions_Click(object sender, RoutedEventArgs e)
         {
             var settings = new SettingsForm();
-            settings.ShowDialog();
+
+            if (settings.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                _chartDataSource.UpdateConfig(GetChartConfig());
         }
 
         private void CmdOffsetCalculator_Click(object sender, RoutedEventArgs e)
@@ -225,7 +228,7 @@ namespace BodePlotter
             if (!DialogHelper.TryInstrumentOperation(() =>
             {
                 var measurementSession = GlobalResourceManager.Open(measurementAddr) as IMessageBasedSession;
-                measurementInstrument = MeasurementInstrumentFactory.GetSource(measurementSession, measurementAddr);
+                measurementInstrument = MeasurementInstrumentFactory.GetMeasurer(measurementSession, measurementAddr);
             }))
             {
                 return;
@@ -308,9 +311,9 @@ namespace BodePlotter
                     break;
             }
 
-            BtnAddToRef.IsEnabled = _chartDataSource?.HasFullDataSet ?? false;
-            BtnClearRef.IsEnabled = _chartDataSource?.HasReference ?? false;
-            CmdSaveRef.IsEnabled = _chartDataSource?.HasFullDataSet ?? false;
+            BtnAddToRef.IsEnabled = _chartDataSource.HasFullDataSet;
+            BtnClearRef.IsEnabled = _chartDataSource.HasReference;
+            CmdSaveRef.IsEnabled = _chartDataSource.HasFullDataSet;
             _lastUiState = state;
         }
 
@@ -354,6 +357,15 @@ namespace BodePlotter
             {
                 SetUiState(UiState.Busy);
             }
+        }
+
+        private ChartConfiguration GetChartConfig()
+        {
+            return new ChartConfiguration
+            {
+                ActualPlotLabel = Properties.Settings.Default.ActualPlotLabel,
+                RefPlotLabel = Properties.Settings.Default.RefPlotLabel
+            };
         }
 
         private bool ParseAndSaveInputs()

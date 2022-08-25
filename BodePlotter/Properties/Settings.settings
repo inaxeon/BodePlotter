@@ -29,5 +29,11 @@
     <Setting Name="Offset" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="RefPlotLabel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Ref</Value>
+    </Setting>
+    <Setting Name="ActualPlotLabel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Actual</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
