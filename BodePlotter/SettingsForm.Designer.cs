@@ -125,7 +125,7 @@
             this.groupBox2.Size = new System.Drawing.Size(443, 103);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Graph";
+            this.groupBox2.Text = "Graph configuration";
             // 
             // txtActualPlot
             // 
@@ -146,18 +146,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(17, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(85, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Actual plot:";
+            this.label3.Text = "Actual plot label:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(17, 51);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 13);
+            this.label4.Size = new System.Drawing.Size(105, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Reference plot:";
+            this.label4.Text = "Reference plot label:";
             // 
             // SettingsForm
             // 
