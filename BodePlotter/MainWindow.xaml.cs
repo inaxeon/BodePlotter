@@ -157,11 +157,13 @@ namespace BodePlotter
                 string filename = dlg.FileName;
                 var rtb = new RenderTargetBitmap((int)ChtBodeChart.ActualWidth, (int)ChtBodeChart.ActualHeight + (int)MainMenu.ActualHeight, 96, 96, PixelFormats.Pbgra32);
                 var png = new PngBitmapEncoder();
-                var stream = new FileStream(filename, FileMode.Create);
 
-                rtb.Render(ChtBodeChart);
-                png.Frames.Add(BitmapFrame.Create(rtb));
-                png.Save(stream);
+                using (var stream = new FileStream(filename, FileMode.Create))
+                {
+                    rtb.Render(ChtBodeChart);
+                    png.Frames.Add(BitmapFrame.Create(rtb));
+                    png.Save(stream);
+                }
             }
         }
 
