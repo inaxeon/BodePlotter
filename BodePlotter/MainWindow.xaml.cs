@@ -10,6 +10,8 @@ using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -139,6 +141,30 @@ namespace BodePlotter
         private void CmdOpenActual_Click(object sender, RoutedEventArgs e)
         {
             OpenPlot(true);
+        }
+
+        private void CmdSaveImage_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            dlg.FileName = "SavedChart";
+            dlg.DefaultExt = ".png";
+            dlg.Filter = "Saved plots (.png)|*.png";
+            
+            var result = dlg.ShowDialog();
+
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+                var rtb = new RenderTargetBitmap((int)ChtBodeChart.ActualWidth, (int)ChtBodeChart.ActualHeight, 96, 96, PixelFormats.Pbgra32);
+                var png = new PngBitmapEncoder();
+                var stream = new MemoryStream();
+
+                rtb.Render(ChtBodeChart);
+                png.Frames.Add(BitmapFrame.Create(rtb));
+                png.Save(stream);
+                var image = System.Drawing.Image.FromStream(stream);
+                image.Save(filename, ImageFormat.Png);
+            }
         }
 
         private void OpenPlot(bool useActual)

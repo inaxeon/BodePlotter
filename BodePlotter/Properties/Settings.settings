@@ -53,5 +53,8 @@
     <Setting Name="ChartBackgroundColor" Type="System.String" Scope="User">
       <Value Profile="(Default)">#FFFFFF</Value>
     </Setting>
+    <Setting Name="ChartFillOpacity" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">88</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

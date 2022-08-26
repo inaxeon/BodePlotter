@@ -19,6 +19,10 @@ namespace BodePlotter.Models
             FontFamilyConverter fontFamilyConverter = new FontFamilyConverter();
             var axisFontFamily = (System.Windows.Media.FontFamily)fontFamilyConverter.ConvertFromString(GetFontName(wfFont));
 
+            var fillAlpha = 256 - (((Properties.Settings.Default.ChartFillOpacity) * 100 / 100) * 256) / 100;
+            if (fillAlpha > 255)
+                fillAlpha = 255;
+
             return new ChartConfiguration
             {
                 ActualPlotLabel = Properties.Settings.Default.ActualPlotLabel,
@@ -30,6 +34,7 @@ namespace BodePlotter.Models
                 ChartBackgroundColor = (Color)System.Windows.Media.ColorConverter.ConvertFromString(Properties.Settings.Default.ChartBackgroundColor),
                 Font = axisFontFamily,
                 FontSize = wfFont.Size,
+                FillAlpha = (byte)fillAlpha,
                 FontStyle = new Func<System.Windows.FontStyle>(() =>
                 {
                     switch (wfFont.Style)
@@ -55,7 +60,7 @@ namespace BodePlotter.Models
         public Color ChartGridColor { get; set; }
         public Color ChartBackgroundColor { get; set; }
         public byte StrokeAlpha {  get { return 255; } }
-        public byte FillAlpha { get { return 32; } }
+        public byte FillAlpha { get; set; }
         public System.Windows.Media.FontFamily Font { get; set; }
         public double FontSize { get; set; }
         public System.Windows.FontStyle FontStyle { get; set; }

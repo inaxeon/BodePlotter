@@ -15,6 +15,7 @@ namespace BodePlotter
     {
         ResourceManager _manager;
         private string _currentFont;
+        private uint _currentOpacity;
 
         public SettingsForm()
         {
@@ -57,10 +58,21 @@ namespace BodePlotter
             btnGridColor.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.ChartGridColor);
             btnBackgroundColor.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.ChartBackgroundColor);
             _currentFont = Properties.Settings.Default.ChartFont;
+            txtFillOpacity.Text = Properties.Settings.Default.ChartFillOpacity.ToString();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            uint opacity;
+            if (!uint.TryParse(txtFillOpacity.Text, out opacity) || opacity > 100)
+            {
+                MessageBox.Show("Please enter a valid opacity value", "Invalid opacity value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult = DialogResult.None;
+                return;
+            }
+
+            _currentOpacity = opacity;
+
             if (string.IsNullOrEmpty(txtActualPlot.Text))
             {
                 MessageBox.Show("Please enter actual plot text", "Missing text", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -92,6 +104,7 @@ namespace BodePlotter
             Properties.Settings.Default.ChartFontColor = ColorTranslator.ToHtml(btnFontColor.BackColor);
             Properties.Settings.Default.ChartGridColor = ColorTranslator.ToHtml(btnGridColor.BackColor);
             Properties.Settings.Default.ChartBackgroundColor = ColorTranslator.ToHtml(btnBackgroundColor.BackColor);
+            Properties.Settings.Default.ChartFillOpacity = _currentOpacity;
 
             Properties.Settings.Default.Save();
         }

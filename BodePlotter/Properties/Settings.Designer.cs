@@ -226,5 +226,17 @@ namespace BodePlotter.Properties {
                 this["ChartBackgroundColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("88")]
+        public uint ChartFillOpacity {
+            get {
+                return ((uint)(this["ChartFillOpacity"]));
+            }
+            set {
+                this["ChartFillOpacity"] = value;
+            }
+        }
     }
 }

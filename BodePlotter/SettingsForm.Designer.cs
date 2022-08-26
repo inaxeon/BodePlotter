@@ -52,6 +52,8 @@
             this.txtActualPlot = new System.Windows.Forms.TextBox();
             this.btnDefault = new System.Windows.Forms.Button();
             this.btnRescan = new System.Windows.Forms.Button();
+            this.txtFillOpacity = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -108,10 +110,10 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(367, 259);
+            this.btnOK.Location = new System.Drawing.Point(366, 285);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(90, 29);
-            this.btnOK.TabIndex = 13;
+            this.btnOK.TabIndex = 14;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -119,15 +121,17 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(271, 259);
+            this.btnCancel.Location = new System.Drawing.Point(270, 285);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 29);
-            this.btnCancel.TabIndex = 12;
+            this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.txtFillOpacity);
             this.groupBox2.Controls.Add(this.btnBackgroundColor);
             this.groupBox2.Controls.Add(this.btnGridColor);
             this.groupBox2.Controls.Add(this.btnFontColor);
@@ -144,7 +148,7 @@
             this.groupBox2.Controls.Add(this.txtActualPlot);
             this.groupBox2.Location = new System.Drawing.Point(13, 109);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(443, 141);
+            this.groupBox2.Size = new System.Drawing.Size(443, 170);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Graph configuration";
@@ -274,23 +278,39 @@
             // 
             // btnDefault
             // 
-            this.btnDefault.Location = new System.Drawing.Point(175, 259);
+            this.btnDefault.Location = new System.Drawing.Point(174, 285);
             this.btnDefault.Name = "btnDefault";
             this.btnDefault.Size = new System.Drawing.Size(90, 29);
-            this.btnDefault.TabIndex = 11;
+            this.btnDefault.TabIndex = 12;
             this.btnDefault.Text = "Default";
             this.btnDefault.UseVisualStyleBackColor = true;
             this.btnDefault.Click += new System.EventHandler(this.btnDefault_Click);
             // 
             // btnRescan
             // 
-            this.btnRescan.Location = new System.Drawing.Point(79, 259);
+            this.btnRescan.Location = new System.Drawing.Point(78, 285);
             this.btnRescan.Name = "btnRescan";
             this.btnRescan.Size = new System.Drawing.Size(90, 29);
-            this.btnRescan.TabIndex = 10;
+            this.btnRescan.TabIndex = 11;
             this.btnRescan.Text = "Re-scan";
             this.btnRescan.UseVisualStyleBackColor = true;
             this.btnRescan.Click += new System.EventHandler(this.btnRescan_Click);
+            // 
+            // txtFillOpacity
+            // 
+            this.txtFillOpacity.Location = new System.Drawing.Point(129, 133);
+            this.txtFillOpacity.Name = "txtFillOpacity";
+            this.txtFillOpacity.Size = new System.Drawing.Size(44, 20);
+            this.txtFillOpacity.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 136);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Fill opacity (%):";
             // 
             // SettingsForm
             // 
@@ -298,7 +318,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(468, 298);
+            this.ClientSize = new System.Drawing.Size(468, 326);
             this.Controls.Add(this.btnRescan);
             this.Controls.Add(this.btnDefault);
             this.Controls.Add(this.groupBox2);
@@ -346,5 +366,7 @@
         private System.Windows.Forms.Button btnBackgroundColor;
         private System.Windows.Forms.Button btnGridColor;
         private System.Windows.Forms.Button btnFontColor;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtFillOpacity;
     }
 }

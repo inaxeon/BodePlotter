@@ -24,6 +24,7 @@
                     <MenuItem Header="_Load Saved Plot as Reference..." Name="CmdOpenRef" Click="CmdOpenRef_Click"  />
                     <MenuItem Header="_Load Saved Plot as Actual..." Name="CmdOpenActual" Click="CmdOpenActual_Click"  />
                     <MenuItem Header="_Save Actual Plot as..." Name="CmdSaveRef" Click="CmdSaveRef_Click"  />
+                    <MenuItem Header="Save Chart _Image as..." Name="CmdSaveImage" Click="CmdSaveImage_Click"  />
                     <MenuItem Header="E_xit" Name="CmdExit" InputGestureText="Alt+F4" Click="CmdExit_Click"  />
                 </MenuItem>
                 <MenuItem Header="_Tools">
