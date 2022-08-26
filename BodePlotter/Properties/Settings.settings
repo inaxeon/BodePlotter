@@ -35,5 +35,23 @@
     <Setting Name="ActualPlotLabel" Type="System.String" Scope="User">
       <Value Profile="(Default)">Actual</Value>
     </Setting>
+    <Setting Name="RefPlotColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#FF4336</Value>
+    </Setting>
+    <Setting Name="ActualPlotColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#2195F2</Value>
+    </Setting>
+    <Setting Name="ChartFont" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Segoe UI, 12pt</Value>
+    </Setting>
+    <Setting Name="ChartFontColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#000000</Value>
+    </Setting>
+    <Setting Name="ChartGridColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#F0F0F0</Value>
+    </Setting>
+    <Setting Name="ChartBackgroundColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#FFFFFF</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

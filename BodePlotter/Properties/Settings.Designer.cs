@@ -154,5 +154,77 @@ namespace BodePlotter.Properties {
                 this["ActualPlotLabel"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF4336")]
+        public string RefPlotColor {
+            get {
+                return ((string)(this["RefPlotColor"]));
+            }
+            set {
+                this["RefPlotColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#2195F2")]
+        public string ActualPlotColor {
+            get {
+                return ((string)(this["ActualPlotColor"]));
+            }
+            set {
+                this["ActualPlotColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI, 12pt")]
+        public string ChartFont {
+            get {
+                return ((string)(this["ChartFont"]));
+            }
+            set {
+                this["ChartFont"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
+        public string ChartFontColor {
+            get {
+                return ((string)(this["ChartFontColor"]));
+            }
+            set {
+                this["ChartFontColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#F0F0F0")]
+        public string ChartGridColor {
+            get {
+                return ((string)(this["ChartGridColor"]));
+            }
+            set {
+                this["ChartGridColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
+        public string ChartBackgroundColor {
+            get {
+                return ((string)(this["ChartBackgroundColor"]));
+            }
+            set {
+                this["ChartBackgroundColor"] = value;
+            }
+        }
     }
 }

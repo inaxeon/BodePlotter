@@ -7,8 +7,9 @@
         xmlns:local="clr-namespace:BodePlotter"
         mc:Ignorable="d"
         Title="GPIB Bode Plotter" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid>
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded"
+        Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+    <Grid Name="GrdMain">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="200px"/>
@@ -32,7 +33,7 @@
             </Menu>
             <lvc:CartesianChart Grid.Row="1" Name="ChtBodeChart" Series="{Binding SeriesCollection}" LegendLocation="Right">
                 <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="Voltage ratio" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                    <lvc:Axis Title="Voltage Ratio" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Title="Frequency" Labels="{Binding Labels}"></lvc:Axis>

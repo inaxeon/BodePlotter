@@ -36,10 +36,22 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtActualPlot = new System.Windows.Forms.TextBox();
-            this.txtRefPlot = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnBackgroundColor = new System.Windows.Forms.Button();
+            this.btnGridColor = new System.Windows.Forms.Button();
+            this.btnFontColor = new System.Windows.Forms.Button();
+            this.btnRefColor = new System.Windows.Forms.Button();
+            this.btnActualColor = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnAxisFont = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtRefPlot = new System.Windows.Forms.TextBox();
+            this.txtActualPlot = new System.Windows.Forms.TextBox();
+            this.btnDefault = new System.Windows.Forms.Button();
+            this.btnRescan = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +73,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(444, 108);
+            this.groupBox1.Size = new System.Drawing.Size(444, 91);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hardware setup";
@@ -96,10 +108,10 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(349, 248);
+            this.btnOK.Location = new System.Drawing.Point(367, 259);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(107, 29);
-            this.btnOK.TabIndex = 5;
+            this.btnOK.Size = new System.Drawing.Size(90, 29);
+            this.btnOK.TabIndex = 13;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -107,39 +119,135 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(236, 248);
+            this.btnCancel.Location = new System.Drawing.Point(271, 259);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(107, 29);
-            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Size = new System.Drawing.Size(90, 29);
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnBackgroundColor);
+            this.groupBox2.Controls.Add(this.btnGridColor);
+            this.groupBox2.Controls.Add(this.btnFontColor);
+            this.groupBox2.Controls.Add(this.btnRefColor);
+            this.groupBox2.Controls.Add(this.btnActualColor);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.btnAxisFont);
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtRefPlot);
             this.groupBox2.Controls.Add(this.txtActualPlot);
-            this.groupBox2.Location = new System.Drawing.Point(13, 127);
+            this.groupBox2.Location = new System.Drawing.Point(13, 109);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(443, 103);
+            this.groupBox2.Size = new System.Drawing.Size(443, 141);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Graph configuration";
             // 
-            // txtActualPlot
+            // btnBackgroundColor
             // 
-            this.txtActualPlot.Location = new System.Drawing.Point(129, 20);
-            this.txtActualPlot.Name = "txtActualPlot";
-            this.txtActualPlot.Size = new System.Drawing.Size(291, 20);
-            this.txtActualPlot.TabIndex = 2;
+            this.btnBackgroundColor.Location = new System.Drawing.Point(375, 105);
+            this.btnBackgroundColor.Name = "btnBackgroundColor";
+            this.btnBackgroundColor.Size = new System.Drawing.Size(45, 22);
+            this.btnBackgroundColor.TabIndex = 9;
+            this.btnBackgroundColor.UseVisualStyleBackColor = true;
+            this.btnBackgroundColor.Click += new System.EventHandler(this.btnBackgroundColor_Click);
             // 
-            // txtRefPlot
+            // btnGridColor
             // 
-            this.txtRefPlot.Location = new System.Drawing.Point(129, 48);
-            this.txtRefPlot.Name = "txtRefPlot";
-            this.txtRefPlot.Size = new System.Drawing.Size(291, 20);
-            this.txtRefPlot.TabIndex = 3;
+            this.btnGridColor.Location = new System.Drawing.Point(243, 105);
+            this.btnGridColor.Name = "btnGridColor";
+            this.btnGridColor.Size = new System.Drawing.Size(45, 22);
+            this.btnGridColor.TabIndex = 8;
+            this.btnGridColor.UseVisualStyleBackColor = true;
+            this.btnGridColor.Click += new System.EventHandler(this.btnGridColor_Click);
+            // 
+            // btnFontColor
+            // 
+            this.btnFontColor.Location = new System.Drawing.Point(128, 105);
+            this.btnFontColor.Name = "btnFontColor";
+            this.btnFontColor.Size = new System.Drawing.Size(45, 22);
+            this.btnFontColor.TabIndex = 7;
+            this.btnFontColor.UseVisualStyleBackColor = true;
+            this.btnFontColor.Click += new System.EventHandler(this.btnFontColor_Click);
+            // 
+            // btnRefColor
+            // 
+            this.btnRefColor.Location = new System.Drawing.Point(388, 49);
+            this.btnRefColor.Name = "btnRefColor";
+            this.btnRefColor.Size = new System.Drawing.Size(32, 22);
+            this.btnRefColor.TabIndex = 5;
+            this.btnRefColor.UseVisualStyleBackColor = true;
+            this.btnRefColor.Click += new System.EventHandler(this.btnRefColor_Click);
+            // 
+            // btnActualColor
+            // 
+            this.btnActualColor.Location = new System.Drawing.Point(388, 19);
+            this.btnActualColor.Name = "btnActualColor";
+            this.btnActualColor.Size = new System.Drawing.Size(32, 22);
+            this.btnActualColor.TabIndex = 3;
+            this.btnActualColor.UseVisualStyleBackColor = true;
+            this.btnActualColor.Click += new System.EventHandler(this.btnActualColor_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(301, 110);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 13);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Background:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(179, 110);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(55, 13);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Grid color:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 109);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Front color:";
+            // 
+            // btnAxisFont
+            // 
+            this.btnAxisFont.Location = new System.Drawing.Point(128, 77);
+            this.btnAxisFont.Name = "btnAxisFont";
+            this.btnAxisFont.Size = new System.Drawing.Size(75, 23);
+            this.btnAxisFont.TabIndex = 6;
+            this.btnAxisFont.Text = "Select...";
+            this.btnAxisFont.UseVisualStyleBackColor = true;
+            this.btnAxisFont.Click += new System.EventHandler(this.btnAxisFont_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 81);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Axis font:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(105, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Reference plot label:";
             // 
             // label3
             // 
@@ -150,14 +258,39 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Actual plot label:";
             // 
-            // label4
+            // txtRefPlot
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 51);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Reference plot label:";
+            this.txtRefPlot.Location = new System.Drawing.Point(129, 50);
+            this.txtRefPlot.Name = "txtRefPlot";
+            this.txtRefPlot.Size = new System.Drawing.Size(253, 20);
+            this.txtRefPlot.TabIndex = 4;
+            // 
+            // txtActualPlot
+            // 
+            this.txtActualPlot.Location = new System.Drawing.Point(129, 20);
+            this.txtActualPlot.Name = "txtActualPlot";
+            this.txtActualPlot.Size = new System.Drawing.Size(253, 20);
+            this.txtActualPlot.TabIndex = 2;
+            // 
+            // btnDefault
+            // 
+            this.btnDefault.Location = new System.Drawing.Point(175, 259);
+            this.btnDefault.Name = "btnDefault";
+            this.btnDefault.Size = new System.Drawing.Size(90, 29);
+            this.btnDefault.TabIndex = 11;
+            this.btnDefault.Text = "Default";
+            this.btnDefault.UseVisualStyleBackColor = true;
+            this.btnDefault.Click += new System.EventHandler(this.btnDefault_Click);
+            // 
+            // btnRescan
+            // 
+            this.btnRescan.Location = new System.Drawing.Point(79, 259);
+            this.btnRescan.Name = "btnRescan";
+            this.btnRescan.Size = new System.Drawing.Size(90, 29);
+            this.btnRescan.TabIndex = 10;
+            this.btnRescan.Text = "Re-scan";
+            this.btnRescan.UseVisualStyleBackColor = true;
+            this.btnRescan.Click += new System.EventHandler(this.btnRescan_Click);
             // 
             // SettingsForm
             // 
@@ -165,7 +298,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(468, 289);
+            this.ClientSize = new System.Drawing.Size(468, 298);
+            this.Controls.Add(this.btnRescan);
+            this.Controls.Add(this.btnDefault);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -199,5 +334,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtRefPlot;
         private System.Windows.Forms.TextBox txtActualPlot;
+        private System.Windows.Forms.Button btnAxisFont;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnDefault;
+        private System.Windows.Forms.Button btnRescan;
+        private System.Windows.Forms.Button btnActualColor;
+        private System.Windows.Forms.Button btnRefColor;
+        private System.Windows.Forms.Button btnBackgroundColor;
+        private System.Windows.Forms.Button btnGridColor;
+        private System.Windows.Forms.Button btnFontColor;
     }
 }

@@ -23,6 +23,7 @@ namespace BodePlotter.Models
         {
             _config = config;
             YFormatter = value => value.ToString() + " dB";
+
             SeriesCollection = new SeriesCollection
             {
                 new LineSeries
@@ -30,8 +31,8 @@ namespace BodePlotter.Models
                     Title = _config.ActualPlotLabel,
                     Values = new ChartValues<double>(),
                     PointGeometry = null,
-                    Stroke = new SolidColorBrush(Color.FromArgb(255, 33, 149, 242)),
-                    Fill = new SolidColorBrush(Color.FromArgb(32, 33, 149, 242))
+                    Stroke = new SolidColorBrush(Color.FromArgb(_config.StrokeAlpha, _config.ActualPlotColor.R, _config.ActualPlotColor.G, _config.ActualPlotColor.B)),
+                    Fill = new SolidColorBrush(Color.FromArgb(_config.FillAlpha, _config.ActualPlotColor.R, _config.ActualPlotColor.G, _config.ActualPlotColor.B))
                 }
             };
         }
@@ -129,8 +130,8 @@ namespace BodePlotter.Models
                         Title = _config.RefPlotLabel,
                         Values = new ChartValues<double>(),
                         PointGeometry = null,
-                        Stroke = new SolidColorBrush(Color.FromArgb(255, 255, 67, 54)),
-                        Fill = new SolidColorBrush(Color.FromArgb(32, 255, 67, 54))
+                        Stroke = new SolidColorBrush(Color.FromArgb(_config.StrokeAlpha, _config.RefPlotColor.R, _config.RefPlotColor.G, _config.RefPlotColor.B)),
+                        Fill = new SolidColorBrush(Color.FromArgb(_config.FillAlpha, _config.RefPlotColor.R, _config.RefPlotColor.G, _config.RefPlotColor.B))
                     }
                 );
             }
@@ -159,10 +160,19 @@ namespace BodePlotter.Models
             _config = config;
 
             if (SeriesCollection.Count >= 1)
+            {
                 ((LineSeries)SeriesCollection[0]).Title = _config.ActualPlotLabel;
+                ((LineSeries)SeriesCollection[0]).Stroke = new SolidColorBrush(Color.FromArgb(_config.StrokeAlpha, _config.ActualPlotColor.R, _config.ActualPlotColor.G, _config.ActualPlotColor.B));
+                ((LineSeries)SeriesCollection[0]).Fill = new SolidColorBrush(Color.FromArgb(_config.FillAlpha, _config.ActualPlotColor.R, _config.ActualPlotColor.G, _config.ActualPlotColor.B));
+
+            }
 
             if (SeriesCollection.Count == 2)
+            {
                 ((LineSeries)SeriesCollection[1]).Title = _config.RefPlotLabel;
+                ((LineSeries)SeriesCollection[1]).Stroke = new SolidColorBrush(Color.FromArgb(_config.StrokeAlpha, _config.RefPlotColor.R, _config.RefPlotColor.G, _config.RefPlotColor.B));
+                ((LineSeries)SeriesCollection[1]).Fill = new SolidColorBrush(Color.FromArgb(_config.FillAlpha, _config.RefPlotColor.R, _config.RefPlotColor.G, _config.RefPlotColor.B));
+            }
 
             NotifyPropertyChanged("SeriesCollection");
         }

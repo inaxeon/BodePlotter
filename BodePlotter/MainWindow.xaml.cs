@@ -9,6 +9,7 @@ using LiveCharts.Configurations;
 using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,7 +45,9 @@ namespace BodePlotter
         {
             InitializeComponent();
 
-            _chartDataSource = new ChartDataSource(GetChartConfig());
+            var config = ChartConfiguration.FromConfig();
+            _chartDataSource = new ChartDataSource(config);
+            UpdateBaseChartConfig(config);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -104,7 +107,11 @@ namespace BodePlotter
             var settings = new SettingsForm();
 
             if (settings.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                _chartDataSource.UpdateConfig(GetChartConfig());
+            {
+                var config = ChartConfiguration.FromConfig();
+                _chartDataSource.UpdateConfig(config);
+                UpdateBaseChartConfig(config);
+            }
         }
 
         private void CmdOffsetCalculator_Click(object sender, RoutedEventArgs e)
@@ -359,15 +366,6 @@ namespace BodePlotter
             }
         }
 
-        private ChartConfiguration GetChartConfig()
-        {
-            return new ChartConfiguration
-            {
-                ActualPlotLabel = Properties.Settings.Default.ActualPlotLabel,
-                RefPlotLabel = Properties.Settings.Default.RefPlotLabel
-            };
-        }
-
         private bool ParseAndSaveInputs()
         {
             uint numPoints;
@@ -428,6 +426,24 @@ namespace BodePlotter
             Properties.Settings.Default.Save();
 
             return true;
+        }
+
+        private void UpdateBaseChartConfig(ChartConfiguration config)
+        {
+            ChtBodeChart.Background = new SolidColorBrush(config.ChartBackgroundColor);
+            ChtBodeChart.Foreground = new SolidColorBrush(config.ChartFontColor);
+
+            ChtBodeChart.AxisX[0].Foreground = new SolidColorBrush(config.ChartFontColor);
+            ChtBodeChart.AxisY[0].Foreground = new SolidColorBrush(config.ChartFontColor);
+            ChtBodeChart.AxisX[0].Separator.Stroke = new SolidColorBrush(config.ChartGridColor);
+            ChtBodeChart.AxisY[0].Separator.Stroke = new SolidColorBrush(config.ChartGridColor);
+
+            ChtBodeChart.FontFamily = config.Font;
+            ChtBodeChart.FontSize = config.FontSize;
+            ChtBodeChart.AxisX[0].FontFamily = config.Font;
+            ChtBodeChart.AxisX[0].FontSize = config.FontSize;
+            ChtBodeChart.AxisY[0].FontFamily = config.Font;
+            ChtBodeChart.AxisY[0].FontSize = config.FontSize;
         }
     }
 }
