@@ -122,7 +122,7 @@ namespace BodePlotter
         private double VoltageGainToDb(double measuredVoltage, double referenceVoltage)
         {
             var dB = 20 * (Math.Log(measuredVoltage / referenceVoltage) / (Math.Log(10)));
-            return Math.Round(dB, 4);
+            return dB;
         }
 
         private void WorkerThread()

@@ -22,7 +22,7 @@ namespace BodePlotter.Models
         public ChartDataSource(ChartConfiguration config)
         {
             _config = config;
-            YFormatter = value => value.ToString() + " dB";
+            YFormatter = value => value.ToString("0.##") + " dB";
 
             SeriesCollection = new SeriesCollection
             {
